@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/led/led",
+    "pages/logs/logs",
+    "pages/find/find",
+    "pages/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#69c3aa",
+    "navigationBarTitleText": "体重秤",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fbf9fe"
+  },
+  "tabBar":{
+    "color":"#929292",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#69C3AA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/shouye1.png",
+        "selectedIconPath": "image/shouye.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "image/huodong1.png",
+        "selectedIconPath": "image/huodong.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "image/wode1.png",
+        "selectedIconPath": "image/wode.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
