@@ -15,21 +15,8 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1200,
+    room_name: "客厅"
 
-    itemArray: [
-      {
-        "itemUrl": '../../image/huaju.jpeg',
-        "itemText": '11月20日话剧《风声》'
-      },
-      {
-        "itemUrl": '../../image/huaju.jpeg',
-        "itemText": '11月20日话剧《原野》'
-      },
-      {
-        "itemUrl": '../../image/huaju.jpeg',
-        "itemText": '11月28日“夜店”演唱会'
-      },
-    ]
   },
 
   onLoad: function (e){
@@ -37,7 +24,20 @@ Page({
     console.log("onloading......");
     setTimeout(function () {
       onenet.getAllDeviceStatus()
-    }, 3000)
+    }, 3000);
+    //get storage data
+    try {
+      var value = wx.getStorageSync('room_name')
+      if (value) {
+        // Do something with return value
+        that.setData({
+          room_name: value
+        })
+      }
+    } catch (e) {
+      // Do something when catch error
+      console.log("get stroage data error!")
+    }
   },
 
   btn_connect_fun:function(e){

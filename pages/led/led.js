@@ -12,7 +12,7 @@ Page({
       '../../image/swiper1.jpg'
     ],
     room_name:"客厅",
-    input_name:"test"
+    input_name:"客厅"
   },
 
   onLoad: function (e) {
@@ -21,6 +21,20 @@ Page({
     // setInterval(function () {
     //   onenet.getDeviceStatus("532808382")
     // }, 3000)
+
+    //get storage data
+    try {
+      var value = wx.getStorageSync('room_name')
+      if (value) {
+        // Do something with return value
+        that.setData({
+          room_name:value
+        })
+      }
+    } catch (e) {
+      // Do something when catch error
+      console.log("get stroage data error!")
+    }
   },
 
   btn_connect_fun: function (e) {
@@ -79,6 +93,12 @@ Page({
     this.setData({
       room_name: this.data.input_name
     })
+    try {
+      wx.setStorageSync('room_name', this.data.room_name)
+    } catch (e) {
+      console.log("fsdddddddddddddddd error")
+     }
+     console.log("success")
   }
 
 })
