@@ -99,6 +99,10 @@ Page({
       console.log("fsdddddddddddddddd error")
      }
      console.log("success")
-  }
+  },
 
+  // LED控制
+  switchChange: function (e) {
+    console.log(e.detail.value)
+  }
 })

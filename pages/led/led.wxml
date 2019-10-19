@@ -13,16 +13,45 @@
 
 <view class="led_info_list">
       <view class="weui_cell">
-          <view class="weui_cell_hd"><image src="../../image/shouye.png"></image></view>
+          <view class="weui_cell_hd"><image src="../../image/led/led.jpg"></image></view>
           <view class="weui_cell_bd">
               <view class="weui_cell_bd_p"> 红灯 </view>
           </view>
-          <view class="room_name">客厅</view>
-          <view class="weui_cell_hd-arrow"><image src="../../image/icon-arrow.png"></image></view>
+          <!-- <view class="room_name">{{ room_name }}</view> -->
+          <view class="weui_cell_hd-arrow_led">
+            <switch checked bindchange="switchChange"/>
+          </view>
           <view class="with_arrow"></view>
       </view>
 </view>
 
+<view class="led_info_list">
+      <view class="weui_cell">
+          <view class="weui_cell_hd"><image src="../../image/led/led.jpg"></image></view>
+          <view class="weui_cell_bd">
+              <view class="weui_cell_bd_p"> 蓝灯 </view>
+          </view>
+          <!-- <view class="room_name">{{ room_name }}</view> -->
+          <view class="weui_cell_hd-arrow_led">
+            <switch checked bindchange="switchChange"/>
+          </view>
+          <view class="with_arrow"></view>
+      </view>
+</view>
+
+<view class="led_info_list">
+      <view class="weui_cell">
+          <view class="weui_cell_hd"><image src="../../image/led/led.jpg"></image></view>
+          <view class="weui_cell_bd">
+              <view class="weui_cell_bd_p"> 绿灯 </view>
+          </view>
+          <!-- <view class="room_name">{{ room_name }}</view> -->
+          <view class="weui_cell_hd-arrow_led">
+            <switch checked bindchange="switchChange"/>
+          </view>
+          <view class="with_arrow"></view>
+      </view>
+</view>
 
 <!--弹窗-->
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
