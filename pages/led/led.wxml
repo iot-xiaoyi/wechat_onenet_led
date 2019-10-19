@@ -1,72 +1,40 @@
-<view>
-  <swiper indicator-dots="{{indicatorDots}}" 
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
-<!-- <view class="category">
-  <view class="category_item" wx:for="{{iconArray}}">
-    <view class="category_item_wrap">
-      <view class="icon_wrap">
-        <image src="{{item.iconUrl}}" class="index_icon"></image>
-      </view>
-      <view class="category_item_text">
-        <text>{{item.iconText}}</text>
-      </view>
-    </view>
-  </view>
-</view>
-<view>
-  <view class="singal_item" wx:for="{{itemArray}}">
-    <view class="singal_item_title">
-      <text>{{item.itemText}}</text>
-    </view>
-    <view class="singal_item_image">
-      <image bindload="cusImageLoad" src="{{item.itemUrl}}" style="width: {{imageWidth}};height: {{imageHeight}}"></image>
-    </view>
-  </view>
-</view> -->
-<view>
-  <view class="onenet_btn">
-    <button type="primary" bindtap="btn_connect_fun">查询设备状态</button>
-  </view>
 
-  <view class="onenet_btn">
-    <button type="primary" bindtap="btn_open_led_fun">打开红灯</button>
-  </view>
-
-  <view class="onenet_btn">
-    <button type="primary"  bindtap="btn_close_led_fun">关闭红灯</button>
-  </view>
-<!-- 
-  <view class="commen_title">
-    <text>猜你喜欢</text>
-  </view>
-
-  <view class="single_goods">
-    <view class="single_image_wrap">
-      <image src="../../image/zhutu.jpg" class="single_goods_image"></image>
-    </view>
-    <view class="single_goods_infor">
-      <navigator url="../spdetail/spdetail">
-        <view class="single_goods_name">
-          <text>木村耀司登山旅行大学生户外情侣双肩背包外带小背包</text>
-        </view>
-        <view class="single_goods_address">
-          <text>诸暨</text>
-        </view>
-        <view class="single_goods_price">
-          <text>¥169.00</text>
-          <view class="carImgWrap">
-            <image src="../../image/car.png" class="carImg"></image>
+<view class="info_list">
+      <view class="weui_cell">
+          <view class="weui_cell_hd"><image src="../../image/shouye.png"></image></view>
+          <view class="weui_cell_bd">
+              <view class="weui_cell_bd_p"> 房间 </view>
           </view>
-        </view>
-      </navigator>
-    </view>
-  </view> -->
+          <view class="room_name">{{ room_name }}</view>
+          <view class="weui_cell_hd-arrow" bindtap="set_room"><image src="../../image/icon-arrow.png"></image></view>
+          <view class="with_arrow"></view>
+      </view>
 </view>
 
+<view class="led_info_list">
+      <view class="weui_cell">
+          <view class="weui_cell_hd"><image src="../../image/shouye.png"></image></view>
+          <view class="weui_cell_bd">
+              <view class="weui_cell_bd_p"> 红灯 </view>
+          </view>
+          <view class="room_name">客厅</view>
+          <view class="weui_cell_hd-arrow"><image src="../../image/icon-arrow.png"></image></view>
+          <view class="with_arrow"></view>
+      </view>
+</view>
+
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">修改房间名</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入房间名"></input>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
+</view>

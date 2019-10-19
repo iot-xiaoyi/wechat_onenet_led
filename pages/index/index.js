@@ -61,5 +61,8 @@ Page({
   cusImageLoad: function (e) {
     var that = this;
     that.setData(WxAutoImage.wxAutoImageCal(e));
+  },
+  set_room: function (e) {
+    console.log("set room..............")
   }
 })

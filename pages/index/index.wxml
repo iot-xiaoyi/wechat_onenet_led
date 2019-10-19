@@ -25,7 +25,7 @@
         </view>
         <view class="device_d">
           <view class="room">
-            <text>客厅的灯</text>
+            <text>客厅</text>
           </view>
           <view class="device_status">
             <text>离线</text>
