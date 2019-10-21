@@ -213,6 +213,6 @@ input-holder {
 
 .btn-confirm {
   width: 50%;
-  color: #ec5300;
+  color: #69c3aa;
   text-align: center;
 }

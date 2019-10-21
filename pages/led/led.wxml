@@ -19,7 +19,7 @@
           </view>
           <!-- <view class="room_name">{{ room_name }}</view> -->
           <view class="weui_cell_hd-arrow_led">
-            <switch checked bindchange="switchChange"/>
+            <switch checked bindchange="btn_red_led_fun"/>
           </view>
           <view class="with_arrow"></view>
       </view>

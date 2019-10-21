@@ -14,26 +14,29 @@
 </view>
 
 <view>
-  <view class="device">
-    <view class="single_image_wrap">
-      <image src="../../image/led/led.jpg" class="device_image"></image>
-    </view>
-    <view class="device_info">
-      <navigator url="../led/led">
-        <view class="device_name">
-          <text>LED</text>
-        </view>
-        <view class="device_d">
-          <view class="room">
-            <text>{{room_name}}</text>
+  <view  wx:for="{{devices}}" wx:key="id" wx:for-item="item" data-id="{{item.id}}" bindtap="toDetailsTap">
+    <view class="device">
+      <view class="single_image_wrap">
+        <image src="../../image/led/led.jpg" class="device_image"></image>
+      </view>
+      <view class="device_info">
+        <navigator url="../led/led?id={{item.id}}">
+          <view class="device_name">
+            <text>LED</text>
           </view>
-          <view class="device_status">
-            <text>离线</text>
+          <view class="device_d">
+            <view class="room">
+              <text>{{room_name}}</text>
+            </view>
+            <view class="device_status">
+              <text>{{item.online === true ? ' 在线' : '离线'}}</text>
+            </view>
           </view>
-        </view>
 
-      </navigator>
+        </navigator>
+      </view>
     </view>
   </view>
+
 </view>
 

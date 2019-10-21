@@ -11,15 +11,20 @@ Page({
       '../../image/swiper1.jpg',
       '../../image/swiper1.jpg'
     ],
-    room_name:"客厅",
-    input_name:"客厅"
+    room_name:"",
+    input_name:"",
+    id:0
   },
 
   onLoad: function (e) {
     var that = this;
     console.log("onloading......");
+    console.log("id is ", e.id)
+    that.setData({
+      id:e.id
+    })
     // setInterval(function () {
-    //   onenet.getDeviceStatus("532808382")
+    //   onenet.getDeviceStatus(e.id)
     // }, 3000)
 
     //get storage data
@@ -47,9 +52,17 @@ Page({
       console.log("connect to cloud error!");
 
   },
-  btn_open_led_fun: function (e) {
-    console.log("ready to open red led!");
-    onenet.sendCmd()
+  btn_red_led_fun: function (e) {
+    var that = this;
+    if (true == e.detail.value)
+    {
+      console.log("ready to open red led!");
+      onenet.sendCmd(that.data.id, "2")
+    }else
+    {
+      console.log("ready to close red led!");
+      onenet.sendCmd(that.data.id, "4")
+    }
   },
   btn_close_led_fun: function (e) {
     console.log("ready to close red led!");

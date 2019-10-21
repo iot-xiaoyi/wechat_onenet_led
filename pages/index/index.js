@@ -1,5 +1,4 @@
 var WxAutoImage = require('../../js/wxAutoImageCal.js');
-var onenet = require('../../js/onenet.js');
 
 var app = getApp();
 
@@ -15,17 +14,38 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1200,
-    room_name: "客厅"
-
+    room_name: "客厅",
+    devices: [],
+    employId: '',
+    bindDisabled:false
   },
 
   onLoad: function (e){
     var that = this;
     console.log("onloading......");
-    setTimeout(function () {
-      onenet.getAllDeviceStatus()
-    }, 3000);
+    // setTimeout(function () {
+    //   onenet.getAllDeviceStatus()
+    // }, 3000);
     //get storage data
+    // 所以此处加入 callback 以防止这种情况
+    //判断是用户是否绑定了
+    if (app.globalData.employId && app.globalData.employId != '') {
+      this.setData({
+        
+        bindDisabled: true
+      });
+    } else {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.employIdCallback = employId => {
+        if (employId != '') {
+          this.setData({
+            bindDisabled: true
+          });
+        }
+      }
+    }
+
     try {
       var value = wx.getStorageSync('room_name')
       if (value) {
@@ -37,32 +57,20 @@ Page({
     } catch (e) {
       // Do something when catch error
       console.log("get stroage data error!")
-    }
+    };
+
+    // 从app页面的devicesList中获取设备列表
+    that.setData({
+      devices: app.globalData.devices
+    })
+    console.log("$$$$$$$$$$$$$", that.data.devices)
+    console.log(app.globalData.devices)
   },
 
-  btn_connect_fun:function(e){
-    console.log("ready to connect to onenet!");
-    var dat = onenet.getDeviceStatus("532808382")
-    console.log(dat)
-    if ( dat )
-      console.log("connect to cloud success!");
-    else
-      console.log("connect to cloud error!");
-
-  },
-  btn_open_led_fun: function (e) {
-    console.log("ready to open red led!");
-    onenet.sendCmd()
-  },
-  btn_close_led_fun: function (e) {
-    console.log("ready to close red led!");
-    onenet.getDataPoints()
-  },
-  cusImageLoad: function (e) {
-    var that = this;
-    that.setData(WxAutoImage.wxAutoImageCal(e));
-  },
-  set_room: function (e) {
-    console.log("set room..............")
+  sleep:function (ms) {
+    return new Promise(resolve =>
+      setTimeout(resolve, ms)
+    )
   }
+  
 })
