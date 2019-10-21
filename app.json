@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/start/start",
     "pages/index/index",
     "pages/led/led",
     "pages/logs/logs",
@@ -13,8 +14,8 @@
     "navigationBarTextStyle": "white",
     "backgroundColor": "#fbf9fe"
   },
-  "tabBar":{
-    "color":"#929292",
+  "tabBar": {
+    "color": "#929292",
     "backgroundColor": "#ffffff",
     "selectedColor": "#69C3AA",
     "borderStyle": "white",
