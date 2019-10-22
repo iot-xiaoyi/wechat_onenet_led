@@ -1,0 +1,29 @@
+.hahahh {
+  height: 1198rpx;
+}
+
+image {
+  height: 1198rpx;
+  width: 100%;
+}
+
+.welcome-img {
+  position: absolute;
+  z-index: 1;
+}
+
+.welcome-btn {
+  background-color: #27e4b5;
+  color: white;
+  font-size: 38rpx;
+  width: 330rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 120rpx;
+  left: 20px;
+  right:20px;
+  z-index: 2;
+}

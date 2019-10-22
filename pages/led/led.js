@@ -23,9 +23,15 @@ Page({
     that.setData({
       id:e.id
     })
-    // setInterval(function () {
-    //   onenet.getDeviceStatus(e.id)
-    // }, 3000)
+    setInterval(function () {
+      var dat = onenet.getDeviceStatus(e.id);
+      if (dat)
+        console.log("connect to cloud success!");
+      else
+        console.log("connect to cloud error!");
+
+        onenet.getDataPoints(e.id)
+    }, 3000)
 
     //get storage data
     try {
@@ -57,18 +63,33 @@ Page({
     if (true == e.detail.value)
     {
       console.log("ready to open red led!");
-      onenet.sendCmd(that.data.id, "2")
+      onenet.sendCmd(that.data.id, "0")
     }else
     {
       console.log("ready to close red led!");
+      onenet.sendCmd(that.data.id, "2")
+    }
+  },
+  btn_blue_led_fun: function (e) {
+    var that = this;
+    if (true == e.detail.value) {
+      console.log("ready to open blue led!");
+      onenet.sendCmd(that.data.id, "0")
+    } else {
+      console.log("ready to close blue led!");
       onenet.sendCmd(that.data.id, "4")
     }
   },
-  btn_close_led_fun: function (e) {
-    console.log("ready to close red led!");
-    onenet.getDataPoints()
+  btn_green_led_fun: function (e) {
+    var that = this;
+    if (true == e.detail.value) {
+      console.log("ready to open blue led!");
+      onenet.sendCmd(that.data.id, "0")
+    } else {
+      console.log("ready to close blue led!");
+      onenet.sendCmd(that.data.id, "3")
+    }
   },
-
   set_room: function () {
     this.setData({
       showModal: true
@@ -117,5 +138,44 @@ Page({
   // LED控制
   switchChange: function (e) {
     console.log(e.detail.value)
-  }
+  },
+
+  //onenet interfce
+  getDataPoints:function(id) {
+    var deviceConnected
+  //查看设备连接状态，并刷新按钮状态
+  wx.request({
+      url: "http://api.heclouds.com/devices/" + id + "/datapoints?datastream_id=color&start=2019-09-01T00:00:00&limit=100",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        "api-key": API_KEY
+      },
+      data: {
+
+      },
+      success(res) {
+        console.log(res)
+        // if (res.data.data.online) {
+        //   console.log("设备已经连接")
+        //   deviceConnected = true
+        // } else {
+        //   console.log("设备还未连接")
+        //   deviceConnected = false
+        // }
+      },
+      fail(res) {
+        console.log("请求失败")
+        deviceConnected = false
+      },
+      complete() {
+        if (deviceConnected) {
+          console.log("complete ok")
+          return true
+        } else {
+          console.log("complete error")
+          return false
+        }
+      }
+    })
+  },
 })

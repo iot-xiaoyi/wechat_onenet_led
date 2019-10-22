@@ -1,0 +1,14 @@
+<view>
+  <!-- <swiper indicator-dots="true" autoplay="true" interval="5000" class='hahahh'>
+    <swiper-item>
+      <image src="../../image/start/start.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../image/start/start.png" ></image>
+    </swiper-item>
+    <swiper-item> -->
+      <image src="../../image/start/start.png" class='welcome-img'></image>
+      <button class='welcome-btn' bindtap='goToIndex'>点击开启</button>
+    <!-- </swiper-item>
+  </swiper> -->
+</view>

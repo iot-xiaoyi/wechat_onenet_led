@@ -33,7 +33,7 @@
           </view>
           <!-- <view class="room_name">{{ room_name }}</view> -->
           <view class="weui_cell_hd-arrow_led">
-            <switch checked bindchange="switchChange"/>
+            <switch checked bindchange="btn_blue_led_fun"/>
           </view>
           <view class="with_arrow"></view>
       </view>
@@ -47,7 +47,7 @@
           </view>
           <!-- <view class="room_name">{{ room_name }}</view> -->
           <view class="weui_cell_hd-arrow_led">
-            <switch checked bindchange="switchChange"/>
+            <switch checked bindchange="btn_green_led_fun"/>
           </view>
           <view class="with_arrow"></view>
       </view>
@@ -59,7 +59,7 @@
   <view class="modal-title">修改房间名</view>
   <view class="modal-content">
     <view class="modal-input">
-      <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入房间名"></input>
+      <input placeholder-class="input-holder" type="text" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入房间名"></input>
     </view>
   </view>
   <view class="modal-footer">
