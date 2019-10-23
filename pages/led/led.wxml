@@ -19,21 +19,7 @@
           </view>
           <!-- <view class="room_name">{{ room_name }}</view> -->
           <view class="weui_cell_hd-arrow_led">
-            <switch checked bindchange="btn_red_led_fun"/>
-          </view>
-          <view class="with_arrow"></view>
-      </view>
-</view>
-
-<view class="led_info_list">
-      <view class="weui_cell">
-          <view class="weui_cell_hd"><image src="../../image/led/led.jpg"></image></view>
-          <view class="weui_cell_bd">
-              <view class="weui_cell_bd_p"> 蓝灯 </view>
-          </view>
-          <!-- <view class="room_name">{{ room_name }}</view> -->
-          <view class="weui_cell_hd-arrow_led">
-            <switch checked bindchange="btn_blue_led_fun"/>
+            <switch checked="{{redSwitchChecked}}" bindchange="btn_red_led_fun"/>
           </view>
           <view class="with_arrow"></view>
       </view>
@@ -47,7 +33,21 @@
           </view>
           <!-- <view class="room_name">{{ room_name }}</view> -->
           <view class="weui_cell_hd-arrow_led">
-            <switch checked bindchange="btn_green_led_fun"/>
+            <switch checked="{{greenSwitchChecked}}" bindchange="btn_green_led_fun"/>
+          </view>
+          <view class="with_arrow"></view>
+      </view>
+</view>
+
+<view class="led_info_list">
+      <view class="weui_cell">
+          <view class="weui_cell_hd"><image src="../../image/led/led.jpg"></image></view>
+          <view class="weui_cell_bd">
+              <view class="weui_cell_bd_p"> 蓝灯 </view>
+          </view>
+          <!-- <view class="room_name">{{ room_name }}</view> -->
+          <view class="weui_cell_hd-arrow_led">
+            <switch checked="{{blueSwitchChecked}}" bindchange="btn_blue_led_fun"/>
           </view>
           <view class="with_arrow"></view>
       </view>
