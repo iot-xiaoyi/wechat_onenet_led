@@ -26,6 +26,17 @@ Page({
     // setTimeout(function () {
     //   onenet.getAllDeviceStatus()
     // }, 3000);
+
+    // 从app页面的devicesList中获取设备列表
+    that.setData({
+      devices: app.globalData.devices
+    })
+    console.log("$$$$$$$$$$$$$", that.data.devices)
+    console.log(app.globalData.devices)
+  },
+
+  onShow: function (e) {
+    var that = this
     //get storage data
     try {
       var value = wx.getStorageSync('room_name')
@@ -38,20 +49,7 @@ Page({
     } catch (e) {
       // Do something when catch error
       console.log("get stroage data error!")
-    };
-
-    // 从app页面的devicesList中获取设备列表
-    that.setData({
-      devices: app.globalData.devices
-    })
-    console.log("$$$$$$$$$$$$$", that.data.devices)
-    console.log(app.globalData.devices)
+    }
   },
-
-  sleep:function (ms) {
-    return new Promise(resolve =>
-      setTimeout(resolve, ms)
-    )
-  }
   
 })

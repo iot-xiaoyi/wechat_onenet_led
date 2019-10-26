@@ -184,7 +184,7 @@ Page({
     try {
       wx.setStorageSync('room_name', this.data.room_name)
     } catch (e) {
-      console.log("fsdddddddddddddddd error")
+      console.log("setStorageSync error")
      }
      console.log("success")
   },
@@ -212,13 +212,7 @@ Page({
       success(res) {
         console.log(res)
         deviceConnected = true
-        // if (res.data.data.online) {
-        //   console.log("设备已经连接")
-        //   deviceConnected = true
-        // } else {
-        //   console.log("设备还未连接")
-        //   deviceConnected = false
-        // }
+
         if (that.data.switchFlag != true)
         {
           color_value = res.data.data.datastreams[0].datapoints[0].value

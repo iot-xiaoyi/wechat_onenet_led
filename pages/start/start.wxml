@@ -1,14 +1,6 @@
 <view>
-  <!-- <swiper indicator-dots="true" autoplay="true" interval="5000" class='hahahh'>
-    <swiper-item>
-      <image src="../../image/start/start.png"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="../../image/start/start.png" ></image>
-    </swiper-item>
-    <swiper-item> -->
       <image src="../../image/start/start.png" class='welcome-img'></image>
-      <button class='welcome-btn' bindtap='goToIndex'>点击开启</button>
-    <!-- </swiper-item>
-  </swiper> -->
+      <button class='welcome-btn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+      <!-- <button class='welcome-btn' bindtap='bindGetUserInfo'>点击开启</button> -->
+
 </view>
