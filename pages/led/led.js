@@ -33,12 +33,13 @@ Page({
     }, 3000)
 
     //get storage data
+    var name = 'room_name_' + e.id
     try {
-      var value = wx.getStorageSync('room_name')
+      var value = wx.getStorageSync(name)
       if (value) {
         // Do something with return value
         that.setData({
-          room_name:value
+          room_name: value
         })
       }
     } catch (e) {
@@ -177,15 +178,18 @@ Page({
    * 对话框确认按钮点击事件
    */
   onConfirm: function () {
-    this.hideModal();
-    this.setData({
-      room_name: this.data.input_name
+    var that = this
+    that.hideModal();
+    that.setData({
+      room_name: that.data.input_name
     })
+    var name = 'room_name_' + that.data.id
     try {
-      wx.setStorageSync('room_name', this.data.room_name)
+      wx.setStorageSync(name, that.data.input_name)
     } catch (e) {
-      console.log("setStorageSync error")
-     }
+      // Do something when catch error
+      console.log("setStorageSync error!")
+    }
      console.log("success")
   },
 

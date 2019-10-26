@@ -26,7 +26,7 @@
           </view>
           <view class="device_d">
             <view class="room">
-              <text>{{room_name}}</text>
+              <text>{{item.room_name}}</text>
             </view>
             <view class="device_status">
               <text>{{item.online === true ? ' 在线' : '离线'}}</text>

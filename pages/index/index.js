@@ -14,7 +14,7 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1200,
-    room_name: "客厅",
+    room_names: ["客厅","卧室"],
     devices: [],
     employId: '',
     bindDisabled:false
@@ -22,34 +22,62 @@ Page({
 
   onLoad: function (e){
     var that = this;
+    var name = ''
+    var devices_origin = ''
+
     console.log("onloading......");
     // setTimeout(function () {
     //   onenet.getAllDeviceStatus()
     // }, 3000);
 
     // 从app页面的devicesList中获取设备列表
+    devices_origin = app.globalData.devices
+
+
+    for (var i = 0; i < devices_origin.length; i++) {
+      name = 'room_name_' + devices_origin[i].id
+      try {
+        var value = wx.getStorageSync(name)
+        if (value) {
+          devices_origin[i].room_name = value;
+        }
+      } catch (e) {
+        // Do something when catch error
+        console.log("get stroage data error!")
+      }
+    }
+
     that.setData({
-      devices: app.globalData.devices
+      devices : devices_origin
     })
-    console.log("$$$$$$$$$$$$$", that.data.devices)
-    console.log(app.globalData.devices)
+    // console.log("$$$$$$$$$$$$$", that.data.devices)
   },
 
   onShow: function (e) {
     var that = this
-    //get storage data
-    try {
-      var value = wx.getStorageSync('room_name')
-      if (value) {
-        // Do something with return value
-        that.setData({
-          room_name: value
-        })
+    var name = ''
+    var devices_origin = ''
+
+    // 从app页面的devicesList中获取设备列表
+    devices_origin = app.globalData.devices
+
+    for (var i = 0; i < devices_origin.length; i++) {
+      name = 'room_name_' + devices_origin[i].id
+      try {
+        var value = wx.getStorageSync(name)
+        if (value) {
+          devices_origin[i].room_name = value;
+        }
+      } catch (e) {
+        // Do something when catch error
+        console.log("get stroage data error!")
       }
-    } catch (e) {
-      // Do something when catch error
-      console.log("get stroage data error!")
     }
+
+    that.setData({
+      devices: devices_origin
+    })
+
   },
   
 })
