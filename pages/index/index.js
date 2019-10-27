@@ -5,9 +5,9 @@ var app = getApp();
 Page({
   data: {
     imgUrls: [
-      '../../image/swiper1.jpg',
-      '../../image/swiper1.jpg',
-      '../../image/swiper1.jpg'
+      '../../image/onenet.jpg',
+      '../../image/tecent.jpg',
+      '../../image/rtt.jpg'
     ],
     indicatorDots: true,
     vertical: false,
