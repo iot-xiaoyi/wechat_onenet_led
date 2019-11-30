@@ -1,9 +1,5 @@
-.hahahh {
-  height: 1198rpx;
-}
-
 image {
-  height: 1198rpx;
+  height: 100%;
   width: 100%;
 }
 
